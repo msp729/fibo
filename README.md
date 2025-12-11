@@ -30,3 +30,5 @@ By taking powers of that matrix, we can get larger Fibonacci numbers faster.
 observe that S² = S + I, so all powers of S can be written as linear combinations of S and I.
 
 multiply them with less computation and less storage.
+
+also note that the powers of S always are stored (in this encoding) as adjacent fibonacci numbers, so this is really just a way to take the n'th pair of fibonacci numbers and procure the 2n'th.

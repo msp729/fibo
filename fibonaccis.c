@@ -25,6 +25,9 @@ mat mbase;
   mpz_init(s1);                                                                \
   mpz_init(s2);
 
+// fibonacci-like matrix multiplication
+// 3 multiplications,  4 additions
+// the 5 fewer multiplications is a big deal
 void flm_mul(flm *rop, const flm op) {
   mpz_add(s2, rop->step, rop->ident);
   mpz_add(s0, op.step, op.ident);
@@ -40,6 +43,8 @@ void flm_mul(flm *rop, const flm op) {
   mpz_set(rop->ident, s0);
 }
 
+// general 2x2 matrix multiplication
+// 8 multiplications, 4 additions
 void mat_mul(mat *rop, const mat op) {
   mpz_mul(s0, rop->tl, op.tl);
   mpz_addmul(s0, rop->tr, op.bl);
@@ -169,5 +174,5 @@ int main(void) {
 
   cm_fib(x, 1 << 27);
 
-  gmp_printf("%Zd\n", x);
+  //gmp_printf("%Zd\n", x);
 }
